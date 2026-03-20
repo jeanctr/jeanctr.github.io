@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Mar 2026 13:12:00 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hola Mundo</title>
+      <link>http://localhost:1313/posts/hello-world/</link>
+      <pubDate>Fri, 20 Mar 2026 13:12:00 -0400</pubDate>
+      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <description>&lt;h2 id=&#34;bienvenidos-a-mi-blog-de-10-años&#34;&gt;¡Bienvenidos a mi blog de 10 años!&lt;/h2&gt;
+&lt;p&gt;Este es mi primer post escrito en &lt;strong&gt;Markdown&lt;/strong&gt;. Puedo usar:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Listas&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://google.com&#34;&gt;Links&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Código: &lt;code&gt;print(&amp;quot;Hola&amp;quot;)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>
