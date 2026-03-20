@@ -1,6 +1,6 @@
-baseURL = "https://tu-usuario.github.io/tu-repo/" # ¡Asegúrate de que termine en /!
+baseURL = "https://jeanctr.github.io/website/" # ¡Asegúrate de que termine en /!
 languageCode = "es-es"
-title = "El Blog de [Tu Nombre]"
+title = "El Blog de Jean Carlos"
 theme = "PaperMod"
 
 [params]
@@ -19,7 +19,7 @@ theme = "PaperMod"
     # Redes Sociales (aparecerán iconos automáticamente)
     [[params.socialIcons]]
         name = "twitter"
-        url = "https://twitter.com/tu-usuario"
+        url = "https://twitter.com/jeanctr"
     [[params.socialIcons]]
         name = "github"
-        url = "https://github.com/tu-usuario"
+        url = "https://github.com/jeanctr"
