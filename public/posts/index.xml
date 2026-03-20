@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>Posts on El Blog de [Tu Nombre]</title>
+    <link>http://localhost:1313/tu-repo/posts/</link>
+    <description>Recent content in Posts on El Blog de [Tu Nombre]</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>es-es</language>
     <lastBuildDate>Fri, 20 Mar 2026 13:12:00 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tu-repo/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hola Mundo</title>
-      <link>http://localhost:1313/posts/hello-world/</link>
+      <link>http://localhost:1313/tu-repo/posts/hello-world/</link>
       <pubDate>Fri, 20 Mar 2026 13:12:00 -0400</pubDate>
-      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <guid>http://localhost:1313/tu-repo/posts/hello-world/</guid>
       <description>&lt;h2 id=&#34;bienvenidos-a-mi-blog-de-10-años&#34;&gt;¡Bienvenidos a mi blog de 10 años!&lt;/h2&gt;
 &lt;p&gt;Este es mi primer post escrito en &lt;strong&gt;Markdown&lt;/strong&gt;. Puedo usar:&lt;/p&gt;
 &lt;ul&gt;
