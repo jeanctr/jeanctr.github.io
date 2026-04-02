@@ -2,11 +2,11 @@
 const base = import.meta.env.BASE_URL;
 
 const navLinks = [
-  { href: `${base}/#sobre-mi`, label: 'sobre mí' },
-  { href: `${base}/#habilidades`, label: 'habilidades' },
-  { href: `${base}/#proyectos`, label: 'proyectos' },
-  { href: `${base}/#contacto`, label: 'contacto' },
-  { href: `${base}/blog`, label: 'blog' },
+  { href: `/#sobre-mi`, label: "sobre mí" },
+  { href: `/#habilidades`, label: "habilidades" },
+  { href: `/#proyectos`, label: "proyectos" },
+  { href: `/#contacto`, label: "contacto" },
+  { href: `/blog`, label: "blog" },
 ];
 ---
 
@@ -14,7 +14,7 @@ const navLinks = [
   class="fixed top-0 left-0 right-0 z-100 bg-bg/92 backdrop-blur-sm border-b border-border px-8 h-[46px] flex items-center justify-between"
 >
   <a
-    href={`${base}/`}
+    href={`/`}
     class="text-[13px] font-bold text-text no-underline tracking-tight"
   >
     JCT<span class="text-green">.</span>
