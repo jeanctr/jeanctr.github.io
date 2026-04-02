@@ -1,0 +1,50 @@
+---
+const infoItems = [
+  { key: 'experiencia', value: '+3 años', green: true },
+  { key: 'especialidad', value: 'Eléctrica MT/BT', green: false },
+  { key: 'diseño', value: 'AutoCAD · Revit', green: false },
+  { key: 'ubicación', value: 'Bolivia', green: false },
+];
+---
+
+<section id="sobre-mi" class="py-[3.75rem] border-b border-border">
+  <p
+    class="text-[10px] text-green tracking-[0.12em] uppercase mb-7 flex items-center gap-2.5 after:content-[''] after:flex-1 after:h-px after:bg-border"
+  >
+    sobre mí
+  </p>
+
+  <div class="text-xs text-muted-2 leading-[1.95]">
+    <p>
+      Soy ingeniero electromecánico apasionado por el <span class="text-text"
+        >diseño eléctrico</span
+      > y la integración de sistemas. Mi trabajo combina conocimiento técnico sólido
+      con herramientas de diseño y programación.
+    </p>
+    <p class="mt-3">
+      Me especializo en redes de <span class="text-text"
+        >media y baja tensión</span
+      >, con enfoque en precisión de planos y correcta aplicación de normativas
+      técnicas.
+    </p>
+    <p class="mt-3">
+      Manejo también <span class="text-text">Python, JavaScript y Git</span>,
+      lo que me permite abordar proyectos con un enfoque moderno y eficiente.
+    </p>
+  </div>
+
+  <div
+    class="grid grid-cols-2 mt-8 gap-px bg-border border border-border rounded-[5px] overflow-hidden"
+  >
+    {
+      infoItems.map(({ key, value, green }) => (
+        <div class="bg-surface p-4 px-[1.1rem]">
+          <p class="text-[10px] text-muted mb-1 tracking-wide">{key}</p>
+          <p class={`text-[13px] font-medium ${green ? 'text-green' : 'text-text'}`}>
+            {value}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>

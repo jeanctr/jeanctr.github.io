@@ -1,0 +1,50 @@
+---
+const contacts = [
+  {
+    key: 'email',
+    value: 'jeancarlos.ingenieria@gmail.com',
+    href: 'mailto:jeancarlos.ingenieria@gmail.com',
+  },
+  {
+    key: 'linkedin',
+    value: '/in/jeancarlostr',
+    href: 'https://www.linkedin.com/in/jeancarlostr',
+  },
+  {
+    key: 'github',
+    value: 'github.com/jeanctr',
+    href: 'https://github.com/jeanctr',
+  },
+];
+---
+
+<section id="contacto" class="py-[3.75rem] border-b border-border">
+  <p
+    class="text-[10px] text-green tracking-[0.12em] uppercase mb-7 flex items-center gap-2.5 after:content-[''] after:flex-1 after:h-px after:bg-border"
+  >
+    contacto
+  </p>
+
+  {
+    contacts.map(({ key, value, href }, i) => (
+      <a
+        href={href}
+        target={key !== 'email' ? '_blank' : undefined}
+        class:list={[
+          'group flex items-center gap-5 py-[0.8rem] px-2 border-b border-border no-underline transition-all duration-[120ms] hover:bg-green-dim hover:pl-4',
+          i === 0 && 'border-t',
+        ]}
+      >
+        <span class="text-[10px] text-muted min-w-[68px] tracking-wide">
+          {key}
+        </span>
+        <span class="text-xs text-muted-2 flex-1 transition-colors duration-150 group-hover:text-green">
+          {value}
+        </span>
+        <span class="text-xs text-muted transition-all duration-150 group-hover:text-green group-hover:translate-x-1">
+          →
+        </span>
+      </a>
+    ))
+  }
+</section>

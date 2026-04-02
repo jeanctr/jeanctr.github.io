@@ -1,0 +1,35 @@
+---
+const skills = [
+  { name: 'AutoCAD', cat: 'diseño' },
+  { name: 'Revit', cat: 'diseño' },
+  { name: 'Detallado de planos', cat: 'diseño' },
+  { name: 'Diseño de instalaciones eléctricas', cat: 'ingeniería' },
+  { name: 'Redes eléctricas MT y BT', cat: 'ingeniería' },
+  { name: 'Python', cat: 'programación' },
+  { name: 'JavaScript', cat: 'programación' },
+  { name: 'Git', cat: 'programación' },
+  { name: 'Linux', cat: 'programación' },
+];
+---
+
+<section id="habilidades" class="py-[3.75rem] border-b border-border">
+  <p
+    class="text-[10px] text-green tracking-[0.12em] uppercase mb-7 flex items-center gap-2.5 after:content-[''] after:flex-1 after:h-px after:bg-border"
+  >
+    habilidades
+  </p>
+
+  {
+    skills.map(({ name, cat }, i) => (
+      <div
+        class:list={[
+          'flex items-baseline justify-between py-[0.7rem] px-2 border-b border-border transition-all duration-[120ms] hover:bg-green-dim hover:pl-4',
+          i === 0 && 'border-t',
+        ]}
+      >
+        <span class="text-[13px] text-text">{name}</span>
+        <span class="text-[10px] text-muted tracking-wide">{cat}</span>
+      </div>
+    ))
+  }
+</section>

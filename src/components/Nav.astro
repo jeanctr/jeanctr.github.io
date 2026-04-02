@@ -1,0 +1,31 @@
+---
+const navLinks = [
+  { href: '#sobre-mi', label: 'sobre mí' },
+  { href: '#habilidades', label: 'habilidades' },
+  { href: '#proyectos', label: 'proyectos' },
+  { href: '#contacto', label: 'contacto' },
+];
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-100 bg-bg/92 backdrop-blur-sm border-b border-border px-8 h-[46px] flex items-center justify-between"
+>
+  <a
+    href="#"
+    class="text-[13px] font-bold text-text no-underline tracking-tight"
+  >
+    JCT<span class="text-green">.</span>
+  </a>
+  <div class="flex gap-7">
+    {
+      navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class="text-[11px] text-muted no-underline tracking-wide transition-colors duration-200 hover:text-text"
+        >
+          {label}
+        </a>
+      ))
+    }
+  </div>
+</nav>
