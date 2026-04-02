@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Layout
+  title="Proyectos"
+  description="Portafolio de proyectos de ingeniería electromecánica y desarrollo."
+>
+  <Nav />
+
+  <div class="max-w-[660px] mx-auto px-8 max-sm:px-5 pt-24 pb-8">
+    <h1 class="text-2xl font-bold text-text tracking-tight mb-8">Proyectos</h1>
+
+    <div class="space-y-0">
+      {
+        projects.map((project, i) => (
+          <a href={`/projects/${project.id}`} class="no-underline block">
+            <ProjectCard
+              num={String(i + 1).padStart(2, "0")}
+              title={project.data.title}
+              description={project.data.description}
+              tags={project.data.tags}
+              isFirst={i === 0}
+            />
+          </a>
+        ))
+      }
+    </div>
+
+    <Footer />
+  </div>
+</Layout>
