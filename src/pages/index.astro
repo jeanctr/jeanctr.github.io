@@ -13,6 +13,11 @@ import { getCollection } from 'astro:content';
 const projects = (await getCollection('projects')).sort(
   (a, b) => a.data.order - b.data.order
 );
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <Layout title="Inicio">
@@ -41,14 +46,64 @@ const projects = (await getCollection('projects')).sort(
 
         {
           projects.map((project, i) => (
-            <ProjectCard
-              num={String(i + 1).padStart(2, '0')}
-              title={project.data.title}
-              description={project.data.description}
-              tags={project.data.tags}
-              isFirst={i === 0}
-            />
+            <a href={`/projects/${project.id}`} class="no-underline block">
+              <ProjectCard
+                num={String(i + 1).padStart(2, '0')}
+                title={project.data.title}
+                description={project.data.description}
+                tags={project.data.tags}
+                isFirst={i === 0}
+              />
+            </a>
           ))
+        }
+      </section>
+    </FadeIn>
+
+    <FadeIn>
+      <section id="blog" class="py-[3.75rem] border-b border-border">
+        <p
+          class="text-[10px] text-green tracking-[0.12em] uppercase mb-7 flex items-center gap-2.5 after:content-[''] after:flex-1 after:h-px after:bg-border"
+        >
+          blog
+        </p>
+
+        {
+          posts.length === 0 ? (
+            <p class="text-xs text-muted-2">Próximamente...</p>
+          ) : (
+            posts.map((post, i) => (
+              <a
+                href={`/blog/${post.id}`}
+                class:list={[
+                  'group flex items-baseline justify-between py-[0.8rem] px-2 border-b border-border no-underline transition-all duration-[120ms] hover:bg-green-dim hover:pl-4',
+                  i === 0 && 'border-t',
+                ]}
+              >
+                <span class="text-[13px] text-text group-hover:text-green transition-colors duration-150">
+                  {post.data.title}
+                </span>
+                <span class="text-[10px] text-muted tracking-wide ml-4 shrink-0">
+                  {post.data.pubDate.toLocaleDateString('es-BO', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                  })}
+                </span>
+              </a>
+            ))
+          )
+        }
+
+        {
+          posts.length > 0 && (
+            <a
+              href="/blog"
+              class="inline-block mt-6 text-[11px] text-muted no-underline tracking-wide transition-colors duration-200 hover:text-green"
+            >
+              ver todos los posts →
+            </a>
+          )
         }
       </section>
     </FadeIn>
