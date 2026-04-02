@@ -14,6 +14,7 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title={project.data.title} description={project.data.description}>
@@ -21,7 +22,7 @@ const { Content } = await render(project);
 
   <div class="max-w-[660px] mx-auto px-8 max-sm:px-5 pt-24 pb-8">
     <a
-      href="/#proyectos"
+      href={`${base}/#proyectos`}
       class="text-[11px] text-muted no-underline tracking-wide transition-colors duration-200 hover:text-text mb-8 inline-block"
     >
       ← volver a proyectos

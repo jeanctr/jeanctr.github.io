@@ -18,6 +18,8 @@ const posts = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Inicio">
@@ -46,7 +48,7 @@ const posts = (await getCollection('blog'))
 
         {
           projects.map((project, i) => (
-            <a href={`/projects/${project.id}`} class="no-underline block">
+            <a href={`${base}/projects/${project.id}`} class="no-underline block">
               <ProjectCard
                 num={String(i + 1).padStart(2, '0')}
                 title={project.data.title}
@@ -74,7 +76,7 @@ const posts = (await getCollection('blog'))
           ) : (
             posts.map((post, i) => (
               <a
-                href={`/blog/${post.id}`}
+                href={`${base}/blog/${post.id}`}
                 class:list={[
                   'group flex items-baseline justify-between py-[0.8rem] px-2 border-b border-border no-underline transition-all duration-[120ms] hover:bg-green-dim hover:pl-4',
                   i === 0 && 'border-t',
@@ -98,7 +100,7 @@ const posts = (await getCollection('blog'))
         {
           posts.length > 0 && (
             <a
-              href="/blog"
+              href={`${base}/blog`}
               class="inline-block mt-6 text-[11px] text-muted no-underline tracking-wide transition-colors duration-200 hover:text-green"
             >
               ver todos los posts →
