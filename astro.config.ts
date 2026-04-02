@@ -5,6 +5,11 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://jeanctr.github.io',
   output: 'static',
+  markdown: {
+    shikiConfig: {
+      theme: 'dracula-soft',
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },
