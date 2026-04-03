@@ -1,0 +1,30 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  projects: CollectionEntry<"projects">[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section id="proyectos" class="py-[5rem] border-b border-border">
+  <p
+    class="text-[11px] text-green font-mono tracking-[0.2em] uppercase mb-12 flex items-center gap-4 after:content-[''] after:flex-1 after:h-px after:bg-border/60"
+  >
+    Proyectos destacados
+  </p>
+
+  <div class="space-y-10">
+    {
+      projects.map((project, i) => (
+        <ProjectCard
+          num={String(i + 1).padStart(2, "0")}
+          project={project}
+          isFirst={i === 0}
+        />
+      ))
+    }
+  </div>
+</section>

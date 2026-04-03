@@ -16,36 +16,25 @@ const posts = (await getCollection("blog"))
 >
   <Nav />
 
-  <div class="max-w-[660px] mx-auto px-8 max-sm:px-5 pt-24 pb-8">
-    <h1 class="text-2xl font-bold text-text tracking-tight mb-8">Blog</h1>
+  <div class="page">
+    <div class="section fade">
+      <p class="s-label">blog</p>
 
-    {
-      posts.length === 0 ? (
-        <p class="text-xs text-muted-2">No hay posts publicados todavía.</p>
-      ) : (
-        posts.map((post, i) => (
-          <a
-            href={`/blog/${post.id}`}
-            class:list={[
-              "group flex items-baseline justify-between py-[0.8rem] px-2 border-b border-border no-underline transition-all duration-[120ms] hover:bg-green-dim hover:pl-4",
-              i === 0 && "border-t",
-            ]}
-          >
-            <span class="text-[13px] text-text group-hover:text-green transition-colors duration-150">
-              {post.data.title}
-            </span>
-            <span class="text-[10px] text-muted tracking-wide ml-4 shrink-0">
-              {post.data.pubDate.toLocaleDateString("es-BO", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </span>
-          </a>
-        ))
-      )
-    }
-
+      {
+        posts.length === 0 ? (
+          <p class="about-text">No hay posts publicados todavía.</p>
+        ) : (
+          posts.map((post) => (
+            <a href={`/blog/${post.id}`} class="blog-teaser">
+              <p>{post.data.title}</p>
+              <span>
+                {post.data.pubDate.toLocaleDateString('es-ES', { month: 'short', year: 'numeric' })} →
+              </span>
+            </a>
+          ))
+        )
+      }
+    </div>
     <Footer />
   </div>
 </Layout>

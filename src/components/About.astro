@@ -1,10 +1,5 @@
 ---
-const infoItems = [
-  { key: 'experiencia', value: '+3 años', green: true },
-  { key: 'especialidad', value: 'Eléctrica MT/BT', green: false },
-  { key: 'diseño', value: 'AutoCAD · Revit', green: false },
-  { key: 'ubicación', value: 'Bolivia', green: false },
-];
+import { infoItems } from "@/constants";
 ---
 
 <section id="sobre-mi">
@@ -14,8 +9,8 @@ const infoItems = [
 
   <div class="text-[16px] text-muted-2 leading-relaxed mb-16">
     <p>
-      Soy ingeniero electromecánico apasionado por el <span class="text-text font-medium"
-        >diseño eléctrico</span
+      Soy ingeniero electromecánico apasionado por el <span
+        class="text-text font-medium">diseño eléctrico</span
       > y la integración de sistemas. Mi trabajo combina conocimiento técnico sólido
       con herramientas de diseño y programación.
     </p>
@@ -26,8 +21,9 @@ const infoItems = [
       técnicas.
     </p>
     <p class="mt-6">
-      Manejo también <span class="text-text font-medium">Python, JavaScript y Git</span>,
-      lo que me permite abordar proyectos con un enfoque moderno y eficiente.
+      Manejo también <span class="text-text font-medium"
+        >Python, JavaScript y Git</span
+      >, lo que me permite abordar proyectos con un enfoque moderno y eficiente.
     </p>
   </div>
 
@@ -36,7 +32,9 @@ const infoItems = [
       infoItems.map(({ key, value, green }) => (
         <div class="sm:grid sm:grid-cols-[140px_1fr] sm:gap-6 flex flex-col gap-1 items-baseline">
           <p class="text-[13px] font-mono text-muted uppercase">{key}</p>
-          <p class={`text-[16px] font-medium tracking-tight ${green ? 'text-green' : 'text-text'}`}>
+          <p
+            class={`text-[16px] font-medium tracking-tight ${green ? "text-green" : "text-text"}`}
+          >
             {value}
           </p>
         </div>

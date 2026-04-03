@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import ExperienceCard from "./ExperienceCard.astro";
+const experiences = (await getCollection("experience")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<section
+  id="experiencia"
+  class="py-[5rem] border-b border-border relative overflow-hidden"
+>
+  <p
+    class="text-[11px] text-green font-mono tracking-[0.2em] uppercase mb-12 flex items-center gap-4 after:content-[''] after:flex-1 after:h-px after:bg-border/60"
+  >
+    Experiencia
+  </p>
+
+  <div class="space-y-12 relative">
+    <!-- Línea vertical técnica -->
+    <div
+      class="absolute left-0 top-2 bottom-2 w-px bg-border/40 ml-[7px] max-sm:hidden"
+    >
+    </div>
+
+    {experiences.map((exp) => <ExperienceCard exp={exp} />)}
+  </div>
+</section>

@@ -7,7 +7,7 @@ export default defineConfig({
   output: 'static',
   markdown: {
     shikiConfig: {
-      theme: 'dracula-soft',
+      theme: 'dracula',
     },
   },
   vite: {

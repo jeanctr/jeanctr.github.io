@@ -1,19 +1,19 @@
 ---
+import type { CollectionEntry } from "astro:content";
+
 interface Props {
   num: string;
-  title: string;
-  description: string;
-  tags: string[];
+  project: CollectionEntry<"projects">;
   isFirst?: boolean;
 }
 
-const { num, title, description, tags, isFirst = false } = Astro.props;
+const { num, project, isFirst = false } = Astro.props;
 ---
 
 <div
   class:list={[
-    'grid grid-cols-[auto_1fr] gap-x-6 gap-y-5 items-start py-6 px-4 border-b border-border transition-all duration-200 hover:bg-green-dim hover:rounded-lg',
-    isFirst && 'border-t',
+    "grid grid-cols-[auto_1fr] gap-x-6 gap-y-5 items-start py-6 px-4 border-b border-border transition-all duration-200 hover:bg-green-dim hover:rounded-lg",
+    isFirst && "border-t",
   ]}
 >
   <span
@@ -22,11 +22,15 @@ const { num, title, description, tags, isFirst = false } = Astro.props;
     {num}
   </span>
   <div>
-    <h3 class="text-[15px] text-text font-semibold mb-1.5 tracking-tight">{title}</h3>
-    <p class="text-[13px] text-muted-2 leading-[1.75] mb-3">{description}</p>
+    <h3 class="text-[15px] text-text font-semibold mb-1.5 tracking-tight">
+      {project.data.title}
+    </h3>
+    <p class="text-[13px] text-muted-2 leading-[1.75] mb-3">
+      {project.data.description}
+    </p>
     <div class="flex gap-1.5 flex-wrap">
       {
-        tags.map((tag) => (
+        project.data.tags.map((tag) => (
           <span class="text-[10.5px] font-mono text-muted tracking-wide border border-border px-2 py-[2.5px] rounded-sm bg-surface/50">
             {tag}
           </span>

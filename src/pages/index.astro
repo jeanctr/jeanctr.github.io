@@ -1,7 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Nav from "../components/Nav.astro";
 import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Hero from "@/components/sections/hero/Hero.astro";
+import About from "@/components/sections/about/About.astro";
+import Skills from "@/components/Skills.astro";
+import Projects from "@/components/sections/projects/Projects.astro";
+import Posts from "@/components/sections/posts/Posts.astro";
+import Contact from "@/components/sections/contact/Contact.astro";
 
 // Proyectos destacados
 const featuredProjects = (await getCollection("projects"))
@@ -16,147 +21,23 @@ const latestPosts = (await getCollection("blog"))
 ---
 
 <Layout title="Jean Carlos Tomichá Ressa" description="Portafolio técnico.">
-  <Nav />
-  
   <div class="page">
     <!-- HERO -->
-    <div class="hero fade">
-      <div class="status"><span class="status-dot"></span>disponible para proyectos</div>
-      <h1 class="hero-name">Jean Carlos<br>Tomichá <span class="accent">Ressa</span></h1>
-      <p class="hero-role">Ingeniero Electromecánico · Bolivia</p>
-      <p class="hero-desc">
-        Diseño de instalaciones eléctricas, redes MT/BT y detallado de planos técnicos.
-        También automatizo procesos con Python y construyo herramientas con JavaScript.
-      </p>
-      <div class="ctas">
-        <a href="#contacto" class="btn-cta">contactar →</a>
-        <a href="https://github.com/jeanctr" target="_blank" class="btn-sec">GitHub</a>
-        <a href="https://www.linkedin.com/in/jeancarlostr" target="_blank" class="btn-sec">LinkedIn</a>
-      </div>
-    </div>
+    <Hero />
 
     <!-- SOBRE MÍ -->
-    <div class="section fade" id="sobre-mi">
-      <div class="sec-header">
-        <span class="sec-label">sobre mí</span>
-      </div>
-      <p class="about-body">
-        Soy ing. electromecánico con enfoque en el <strong>diseño eléctrico</strong> y la integración de sistemas.
-        Me especializo en redes de <strong>media y baja tensión</strong>, con especial atención a la precisión del
-        detallado de planos y la aplicación correcta de normativas técnicas.<br><br>
-        Más allá de la ingeniería clásica, uso <strong>Python, JavaScript y Linux</strong> para construir
-        herramientas que automatizan tareas repetitivas y mejoran flujos de trabajo.
-      </p>
-      <div class="stats">
-        <div class="stat"><div class="stat-n"><em>+3</em></div><div class="stat-l">años de exp.</div></div>
-        <div class="stat"><div class="stat-n">MT<em>/</em>BT</div><div class="stat-l">especialidad</div></div>
-        <div class="stat"><div class="stat-n">2</div><div class="stat-l">áreas: ing. + dev</div></div>
-      </div>
-    </div>
+    <About />
 
     <!-- HABILIDADES -->
-    <div class="section fade" id="habilidades">
-      <div class="sec-header"><span class="sec-label">habilidades</span></div>
-      <div class="skills-grid">
-        <div class="skill-group">
-          <p class="sg-title">Diseño & CAD</p>
-          <div class="sg-items">
-            <span>AutoCAD</span>
-            <span>Revit</span>
-            <span>Detallado de planos</span>
-            <span>Instalaciones eléctricas</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <p class="sg-title">Ingeniería eléctrica</p>
-          <div class="sg-items">
-            <span>Redes MT y BT</span>
-            <span>Diseño de redes eléctricas</span>
-            <span>Cálculo de cortocircuito</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <p class="sg-title">Programación</p>
-          <div class="sg-items">
-            <span>Python</span>
-            <span>JavaScript</span>
-            <span>Git</span>
-            <span>Linux</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <p class="sg-title">Otras</p>
-          <div class="sg-items">
-            <span>Documentación técnica</span>
-            <span>Memorias de cálculo</span>
-            <span>Trabajo en equipo</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Skills />
 
-    <!-- PROYECTOS (Dinámicos desde src/content/projects) -->
-    <div class="section fade" id="proyectos">
-      <div class="sec-header">
-        <span class="sec-label">proyectos</span>
-        <span class="sec-count">{featuredProjects.length > 9 ? featuredProjects.length : `0${featuredProjects.length}`} trabajos</span>
-      </div>
-      <div class="projects">
-        {featuredProjects.map((project, i) => (
-          <a href={`/projects/${project.id}`} class="proj fade" style={`transition-delay: ${0.1 + i * 0.15}s`}>
-            <span class="proj-n">{String(i + 1).padStart(2, "0")}</span>
-            <div>
-              <p class="proj-title">{project.data.title}</p>
-              <p class="proj-desc">{project.data.description}</p>
-              <div class="proj-tags">
-                {project.data.tags.map(tag => (
-                  <span class="tag">{tag}</span>
-                ))}
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
+    <!-- PROYECTOS -->
+    <Projects />
 
-    <!-- BLOG -->
-    <div class="section fade" id="blog">
-      <div class="sec-header"><span class="sec-label">blog</span></div>
-      
-      {latestPosts.map((post, i) => (
-        <a href={`/blog/${post.id}`} class="blog-teaser fade mb-4" style={`transition-delay: ${0.1 + i * 0.1}s`}>
-          <p>{post.data.title}</p>
-          <span>
-            {post.data.pubDate.toLocaleDateString('es-ES', { month: 'short', year: 'numeric' })} →
-          </span>
-        </a>
-      ))}
-
-      <div class="blog-teaser blog-view-all fade mt-4" style="transition-delay: 0.4s">
-        <p>Comparto artículos sobre ingeniería eléctrica, automatización, herramientas de diseño y programación aplicada a proyectos técnicos.</p>
-        <a href="/blog">ver todos →</a>
-      </div>
-    </div>
+    <!-- POSTS -->
+    <Posts />
 
     <!-- CONTACTO -->
-    <div class="section fade" id="contacto">
-      <div class="sec-header"><span class="sec-label">contacto</span></div>
-      <div class="contact-list">
-        <a href="mailto:jeancarlos.ingenieria@gmail.com" class="crow">
-          <span class="ck">email</span><span class="cv">jeancarlos.ingenieria@gmail.com</span><span class="ca">→</span>
-        </a>
-        <a href="https://www.linkedin.com/in/jeancarlostr" target="_blank" class="crow">
-          <span class="ck">linkedin</span><span class="cv">/in/jeancarlostr</span><span class="ca">→</span>
-        </a>
-        <a href="https://github.com/jeanctr" target="_blank" class="crow">
-          <span class="ck">github</span><span class="cv">github.com/jeanctr</span><span class="ca">→</span>
-        </a>
-      </div>
-    </div>
-
-    <footer>
-      <span>© 2026 Jean Carlos Tomichá Ressa</span>
-      <span>Ing. Electromecánico · Bolivia</span>
-    </footer>
+    <Contact />
   </div>
 </Layout>
