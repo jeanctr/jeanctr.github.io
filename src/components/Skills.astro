@@ -12,24 +12,19 @@ const skills = [
 ];
 ---
 
-<section id="habilidades" class="py-[3.75rem] border-b border-border">
-  <p
-    class="text-[10px] text-green tracking-[0.12em] uppercase mb-7 flex items-center gap-2.5 after:content-[''] after:flex-1 after:h-px after:bg-border"
-  >
-    habilidades
-  </p>
+<section id="habilidades">
+  <h2 class="text-[12px] font-bold text-text uppercase tracking-widest mb-12">
+    Habilidades Térnicas
+  </h2>
 
-  {
-    skills.map(({ name, cat }, i) => (
-      <div
-        class:list={[
-          'flex items-baseline justify-between py-[0.7rem] px-2 border-b border-border transition-all duration-[120ms] hover:bg-green-dim hover:pl-4',
-          i === 0 && 'border-t',
-        ]}
-      >
-        <span class="text-[13px] text-text">{name}</span>
-        <span class="text-[10px] text-muted tracking-wide">{cat}</span>
-      </div>
-    ))
-  }
+  <div class="space-y-4">
+    {
+      skills.map(({ name, cat }) => (
+        <div class="sm:grid sm:grid-cols-[140px_1fr] sm:gap-6 flex flex-col gap-1 group">
+          <span class="text-[13px] text-muted font-mono mt-1">{cat}</span>
+          <span class="text-[16px] text-text font-medium tracking-tight group-hover:text-green transition-colors">{name}</span>
+        </div>
+      ))
+    }
+  </div>
 </section>

@@ -22,4 +22,17 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { projects, blog };
+const experience = defineCollection({
+  loader: glob({ base: './src/content/experience', pattern: '**/*.{md,mdx}' }),
+  schema: z.object({
+    title: z.string(),
+    company: z.string(),
+    period: z.string(),
+    description: z.string(),
+    tags: z.array(z.string()).optional(),
+    order: z.number().default(0),
+    image: z.string().optional(),
+  }),
+});
+
+export const collections = { projects, blog, experience };

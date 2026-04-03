@@ -18,33 +18,32 @@ const contacts = [
 ];
 ---
 
-<section id="contacto" class="py-[3.75rem] border-b border-border">
-  <p
-    class="text-[10px] text-green tracking-[0.12em] uppercase mb-7 flex items-center gap-2.5 after:content-[''] after:flex-1 after:h-px after:bg-border"
-  >
-    contacto
-  </p>
+<section id="contacto">
+  <h2 class="text-[12px] font-bold text-text uppercase tracking-widest mb-12">
+    Contacto
+  </h2>
 
-  {
-    contacts.map(({ key, value, href }, i) => (
-      <a
-        href={href}
-        target={key !== 'email' ? '_blank' : undefined}
-        class:list={[
-          'group flex items-center gap-5 py-[0.8rem] px-2 border-b border-border no-underline transition-all duration-[120ms] hover:bg-green-dim hover:pl-4',
-          i === 0 && 'border-t',
-        ]}
-      >
-        <span class="text-[10px] text-muted min-w-[68px] tracking-wide">
-          {key}
-        </span>
-        <span class="text-xs text-muted-2 flex-1 transition-colors duration-150 group-hover:text-green">
-          {value}
-        </span>
-        <span class="text-xs text-muted transition-all duration-150 group-hover:text-green group-hover:translate-x-1">
-          →
-        </span>
-      </a>
-    ))
-  }
+  <div class="space-y-4">
+    {
+      contacts.map(({ key, value, href }) => (
+        <a
+          href={href}
+          target={key !== 'email' ? '_blank' : undefined}
+          class="sm:grid sm:grid-cols-[140px_1fr] sm:gap-6 flex flex-col gap-1 group no-underline"
+        >
+          <span class="text-[13px] text-muted font-mono mt-1">
+            {key}
+          </span>
+          <div class="flex items-center gap-3">
+            <span class="text-[16px] text-text font-medium group-hover:text-green transition-colors tracking-tight">
+              {value}
+            </span>
+            <span class="text-[14px] text-muted opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 duration-200">
+              →
+            </span>
+          </div>
+        </a>
+      ))
+    }
+  </div>
 </section>

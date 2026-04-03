@@ -16,20 +16,26 @@ const projects = (await getCollection("projects")).sort(
 >
   <Nav />
 
-  <div class="max-w-[660px] mx-auto px-8 max-sm:px-5 pt-24 pb-8">
-    <h1 class="text-2xl font-bold text-text tracking-tight mb-8">Proyectos</h1>
+  <div class="w-full max-w-[800px] mx-auto px-8 max-sm:px-5 pt-32 pb-32">
+    <h1 class="text-[14px] text-muted tracking-widest uppercase mb-12">PROJECTS /></h1>
 
-    <div class="space-y-0">
+    <div class="space-y-16">
       {
-        projects.map((project, i) => (
-          <a href={`/projects/${project.id}`} class="no-underline block">
-            <ProjectCard
-              num={String(i + 1).padStart(2, "0")}
-              title={project.data.title}
-              description={project.data.description}
-              tags={project.data.tags}
-              isFirst={i === 0}
-            />
+        projects.map((project) => (
+          <a href={`/projects/${project.id}`} class="block group no-underline">
+            <div class="flex flex-col gap-2">
+              <h3 class="text-[18px] text-text font-medium group-hover:text-green transition-colors">
+                {project.data.title}
+              </h3>
+              <p class="text-[14px] text-muted">
+                {project.data.description}
+              </p>
+              <div class="flex flex-wrap gap-3 mt-2">
+                {project.data.tags.map(tag => (
+                  <span class="text-[13px] text-muted/70">[{tag}]</span>
+                ))}
+              </div>
+            </div>
           </a>
         ))
       }

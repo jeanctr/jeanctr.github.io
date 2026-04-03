@@ -12,22 +12,22 @@ const { num, title, description, tags, isFirst = false } = Astro.props;
 
 <div
   class:list={[
-    'grid grid-cols-[auto_1fr] gap-x-6 gap-y-5 items-start py-[1.4rem] px-2 border-b border-border transition-all duration-[120ms] hover:bg-green-dim hover:pl-4',
+    'grid grid-cols-[auto_1fr] gap-x-6 gap-y-5 items-start py-6 px-4 border-b border-border transition-all duration-200 hover:bg-green-dim hover:rounded-lg',
     isFirst && 'border-t',
   ]}
 >
   <span
-    class="text-[10px] text-green font-bold tracking-wide pt-[3px] min-w-[24px]"
+    class="text-[11px] font-mono text-green font-bold tracking-widest pt-[4px] min-w-[28px]"
   >
     {num}
   </span>
   <div>
-    <p class="text-[13px] text-text font-medium mb-1">{title}</p>
-    <p class="text-[11px] text-muted-2 leading-[1.85] mb-2">{description}</p>
+    <h3 class="text-[15px] text-text font-semibold mb-1.5 tracking-tight">{title}</h3>
+    <p class="text-[13px] text-muted-2 leading-[1.75] mb-3">{description}</p>
     <div class="flex gap-1.5 flex-wrap">
       {
         tags.map((tag) => (
-          <span class="text-[10px] text-muted tracking-wide border border-border px-2 py-[2px] rounded-sm">
+          <span class="text-[10.5px] font-mono text-muted tracking-wide border border-border px-2 py-[2.5px] rounded-sm bg-surface/50">
             {tag}
           </span>
         ))

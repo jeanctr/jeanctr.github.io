@@ -1,12 +1,12 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'Ingeniero electromecánico — portafolio personal' } = Astro.props;
+const { title, description = "Ingeniero electromecánico — portafolio personal" } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,9 +16,21 @@ const { title, description = 'Ingeniero electromecánico — portafolio personal
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title} — Jean Carlos Tomichá Ressa</title>
+    <title>{title} &mdash; Jean Carlos Tomichá Ressa</title>
   </head>
   <body>
     <slot />
+
+    <script>
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('on');
+          }
+        }),
+        { threshold: 0.08 }
+      );
+      document.querySelectorAll('.fade').forEach((el) => io.observe(el));
+    </script>
   </body>
 </html>
