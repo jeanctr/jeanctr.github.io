@@ -103,7 +103,7 @@ const latestPosts = (await getCollection("blog"))
       </div>
       <div class="projects">
         {featuredProjects.map((project, i) => (
-          <a href={`/projects/${project.id}`} class="proj">
+          <a href={`/projects/${project.id}`} class="proj fade" style={`transition-delay: ${0.1 + i * 0.15}s`}>
             <span class="proj-n">{String(i + 1).padStart(2, "0")}</span>
             <div>
               <p class="proj-title">{project.data.title}</p>
@@ -123,16 +123,16 @@ const latestPosts = (await getCollection("blog"))
     <div class="section fade" id="blog">
       <div class="sec-header"><span class="sec-label">blog</span></div>
       
-      {latestPosts.map((post) => (
-        <a href={`/blog/${post.id}`} class="blog-teaser mb-4">
+      {latestPosts.map((post, i) => (
+        <a href={`/blog/${post.id}`} class="blog-teaser fade mb-4" style={`transition-delay: ${0.1 + i * 0.1}s`}>
           <p>{post.data.title}</p>
-          <span style="font-size:11px;color:#8bc34a;white-space:nowrap;letter-spacing:.04em;">
+          <span>
             {post.data.pubDate.toLocaleDateString('es-ES', { month: 'short', year: 'numeric' })} →
           </span>
         </a>
       ))}
 
-      <div class="blog-teaser mt-4" style="background:transparent;border:none;padding-top:0;">
+      <div class="blog-teaser blog-view-all fade mt-4" style="transition-delay: 0.4s">
         <p>Comparto artículos sobre ingeniería eléctrica, automatización, herramientas de diseño y programación aplicada a proyectos técnicos.</p>
         <a href="/blog">ver todos →</a>
       </div>
